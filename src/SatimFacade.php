@@ -8,21 +8,23 @@ use Illuminate\Support\Facades\Facade;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+ *
  * @project laravel-satim
- * @package LaravelSatim
+ *
  * @name SatimFacade
  *
  * @license MIT
  * @copyright (c) 2025 Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
  *
  * @created 21/06/2025
+ *
  * @version 1.0.0
  */
 class SatimFacade extends Facade
 {
     /**
-     * @return string
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     protected static function getFacadeAccessor(): string

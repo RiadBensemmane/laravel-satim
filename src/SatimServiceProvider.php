@@ -9,21 +9,23 @@ use LaravelSatim\Contracts\SatimInterface;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+ *
  * @project laravel-satim
- * @package LaravelSatim
+ *
  * @name SatimServiceProvider
  *
  * @license MIT
  * @copyright (c) 2025 Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
  *
  * @created 21/06/2025
+ *
  * @version 1.0.0
  */
 class SatimServiceProvider extends ServiceProvider
 {
     /**
-     * @return void
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function boot(): void
@@ -34,8 +36,8 @@ class SatimServiceProvider extends ServiceProvider
     }
 
     /**
-     * @return void
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function register(): void
@@ -45,8 +47,8 @@ class SatimServiceProvider extends ServiceProvider
     }
 
     /**
-     * @return void
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     protected function registerServices(): void

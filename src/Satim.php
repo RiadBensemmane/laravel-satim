@@ -18,35 +18,31 @@ use LaravelSatim\Http\SatimHttpClient;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+ *
  * @project laravel-satim
- * @package LaravelSatim
+ *
  * @name Satim
  *
  * @license MIT
  * @copyright (c) 2025 Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
  *
  * @created 21/06/2025
+ *
  * @version 1.0.0
  */
 class Satim implements SatimInterface
 {
-    /**
-     * @param SatimHttpClient $httpClient
-     * @param SatimCurrency|null $currency
-     * @param SatimLanguage|null $language
-     */
     public function __construct(
         protected SatimHttpClient $httpClient,
         protected ?SatimCurrency $currency = null,
         protected ?SatimLanguage $language = null,
-    ) {
-    }
+    ) {}
 
     /**
-     * @param SatimRegisterRequest $request
-     * @return SatimRegisterResponse
      * @throws SatimApiServerException
+     *
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function register(SatimRegisterRequest $request): SatimRegisterResponse
@@ -59,10 +55,10 @@ class Satim implements SatimInterface
     }
 
     /**
-     * @param SatimConfirmRequest $request
-     * @return SatimConfirmResponse
      * @throws SatimApiServerException
+     *
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function confirm(SatimConfirmRequest $request): SatimConfirmResponse
@@ -75,10 +71,10 @@ class Satim implements SatimInterface
     }
 
     /**
-     * @param SatimRefundRequest $request
-     * @return SatimRefundResponse
      * @throws SatimApiServerException
+     *
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function refund(SatimRefundRequest $request): SatimRefundResponse
@@ -91,9 +87,8 @@ class Satim implements SatimInterface
     }
 
     /**
-     * @param SatimCurrency $currency
-     * @return SatimInterface
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function setCurrency(SatimCurrency $currency): SatimInterface
@@ -104,9 +99,8 @@ class Satim implements SatimInterface
     }
 
     /**
-     * @param SatimLanguage $language
-     * @return SatimInterface
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function setLanguage(SatimLanguage $language): SatimInterface
@@ -117,13 +111,13 @@ class Satim implements SatimInterface
     }
 
     /**
-     * @return SatimCurrency
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function getCurrency(): SatimCurrency
     {
-        if (!($this->currency instanceof SatimCurrency)) {
+        if (! ($this->currency instanceof SatimCurrency)) {
             $this->currency = SatimCurrency::tryFrom(strtoupper(config('satim.currency')))
                 ?? SatimCurrency::fallback();
         }
@@ -132,13 +126,13 @@ class Satim implements SatimInterface
     }
 
     /**
-     * @return SatimLanguage
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function getLanguage(): SatimLanguage
     {
-        if (!($this->language instanceof SatimLanguage)) {
+        if (! ($this->language instanceof SatimLanguage)) {
             $this->language = SatimLanguage::tryFrom(strtoupper(config('satim.language')))
                 ?? SatimLanguage::fallback();
         }
@@ -147,9 +141,8 @@ class Satim implements SatimInterface
     }
 
     /**
-     * @param array $data
-     * @return array
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     protected function data(array $data): array

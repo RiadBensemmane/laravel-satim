@@ -14,41 +14,43 @@ use LaravelSatim\Http\Responses\SatimRegisterResponse;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+ *
  * @project laravel-satim
- * @package LaravelSatim\Contracts
+ *
  * @name SatimInterface
  *
  * @license MIT
  * @copyright (c) 2025 Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
  *
  * @created 21/06/2025
+ *
  * @version 1.0.0
  */
 interface SatimInterface
 {
     /**
-     * @param SatimRegisterRequest $request
-     * @return SatimRegisterResponse
      * @throws SatimApiServerException
+     *
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function register(SatimRegisterRequest $request): SatimRegisterResponse;
 
     /**
-     * @param SatimConfirmRequest $request
-     * @return SatimConfirmResponse
      * @throws SatimApiServerException
+     *
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function confirm(SatimConfirmRequest $request): SatimConfirmResponse;
 
     /**
-     * @param SatimRefundRequest $request
-     * @return SatimRefundResponse
      * @throws SatimApiServerException
+     *
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function refund(SatimRefundRequest $request): SatimRefundResponse;

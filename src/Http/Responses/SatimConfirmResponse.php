@@ -9,37 +9,20 @@ use LaravelSatim\Enums\SatimCurrency;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+ *
  * @project laravel-satim
- * @package LaravelSatim\Http\Responses
+ *
  * @name SatimConfirmResponse
  *
  * @license MIT
  * @copyright (c) 2025 Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
  *
  * @created 21/06/2025
+ *
  * @version 1.0.0
  */
 class SatimConfirmResponse extends AbstractSatimResponse implements SatimResponseInterface
 {
-    /**
-     * @param string|null $expiration
-     * @param string|null $cardholderName
-     * @param float|null $depositAmount
-     * @param SatimCurrency|null $currency
-     * @param string|null $pan
-     * @param string|null $approvalCode
-     * @param int|null $authCode
-     * @param string|null $orderNumber
-     * @param float|null $amount
-     * @param string|null $svfeResponse
-     * @param string|null $orderStatus
-     * @param string|null $actionCode
-     * @param string|null $actionCodeDescription
-     * @param string|null $errorCode
-     * @param string|null $errorMessage
-     * @param string|null $ip
-     * @param array $params
-     */
     public function __construct(
         public ?string $expiration = null,
         public ?string $cardholderName = null,
@@ -70,9 +53,8 @@ class SatimConfirmResponse extends AbstractSatimResponse implements SatimRespons
     }
 
     /**
-     * @param array $response
-     * @return SatimConfirmResponse
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public static function fromResponse(array $response): SatimConfirmResponse

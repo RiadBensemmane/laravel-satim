@@ -12,21 +12,21 @@ use LaravelSatim\Exceptions\SatimInvalidArgumentException;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+ *
  * @project laravel-satim
- * @package LaravelSatim\Http\Requests
+ *
  * @name SatimConfirmRequest
  *
  * @license MIT
  * @copyright (c) 2025 Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
  *
  * @created 21/06/2025
+ *
  * @version 1.0.0
  */
 final class SatimConfirmRequest extends AbstractSatimRequest implements SatimRequestInterface
 {
     /**
-     * @param string $orderId
-     * @param SatimLanguage|null $language
      * @throws SatimInvalidArgumentException
      */
     public function __construct(
@@ -37,11 +37,10 @@ final class SatimConfirmRequest extends AbstractSatimRequest implements SatimReq
     }
 
     /**
-     * @param string $orderId
-     * @param SatimLanguage|null $language
-     * @return SatimConfirmRequest
      * @throws SatimInvalidArgumentException
+     *
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public static function make(
@@ -55,8 +54,8 @@ final class SatimConfirmRequest extends AbstractSatimRequest implements SatimReq
     }
 
     /**
-     * @return array
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function toArray(): array
@@ -65,26 +64,27 @@ final class SatimConfirmRequest extends AbstractSatimRequest implements SatimReq
             'userName' => $this->userName(),
             'password' => $this->password(),
             'orderId' => $this->orderId,
-            'language' => $this->language
+            'language' => $this->language,
         ];
     }
 
     /**
-     * @return array
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function toRequest(): array
     {
         return array_merge($this->toArray(), [
-            'language' => $this->language?->value
+            'language' => $this->language?->value,
         ]);
     }
 
     /**
-     * @return void
      * @throws SatimInvalidArgumentException
+     *
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function validate(): void
@@ -93,7 +93,7 @@ final class SatimConfirmRequest extends AbstractSatimRequest implements SatimReq
             'userName' => ['required', 'string', 'max:30'],
             'password' => ['required', 'string', 'max:30'],
             'orderId' => ['required', 'string', 'max:20'],
-            'language' => ['nullable', Rule::enum(SatimLanguage::class)]
+            'language' => ['nullable', Rule::enum(SatimLanguage::class)],
         ]);
 
         if ($validator->fails()) {

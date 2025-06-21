@@ -6,26 +6,20 @@ namespace LaravelSatim\Http\Responses;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+ *
  * @project laravel-satim
- * @package LaravelSatim\Http\Responses
+ *
  * @name AbstractSatimResponse
  *
  * @license MIT
  * @copyright (c) 2025 Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
  *
  * @created 21/06/2025
+ *
  * @version 1.0.0
  */
 abstract class AbstractSatimResponse
 {
-    /**
-     * @param string|null $orderStatus
-     * @param string|null $actionCode
-     * @param string|null $actionCodeDescription
-     * @param string|null $errorCode
-     * @param string|null $errorMessage
-     * @param array $params
-     */
     public function __construct(
         public ?string $orderStatus = null,
         public ?string $actionCode = null,
@@ -33,12 +27,11 @@ abstract class AbstractSatimResponse
         public ?string $errorCode = null,
         public ?string $errorMessage = null,
         public array $params = []
-    ) {
-    }
+    ) {}
 
     /**
-     * @return bool
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function registeredPayment(): bool
@@ -47,8 +40,8 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @return bool
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function alreadyConfirmed(): bool
@@ -57,8 +50,8 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @return bool
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function acceptedPayment(): bool
@@ -67,8 +60,8 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @return bool
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function rejectedPayment(): bool
@@ -77,8 +70,8 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @return bool
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function refunded(): bool
@@ -87,8 +80,8 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @return string|null
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function errorMessage(): ?string
@@ -97,8 +90,8 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @return string|null
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function errorCode(): ?string
@@ -107,8 +100,8 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @return string|null
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function successMessage(): ?string

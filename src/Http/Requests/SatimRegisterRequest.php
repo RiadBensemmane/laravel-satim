@@ -13,31 +13,21 @@ use LaravelSatim\Exceptions\SatimInvalidArgumentException;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+ *
  * @project laravel-satim
- * @package LaravelSatim\Http\Requests
+ *
  * @name SatimRegisterRequest
  *
  * @license MIT
  * @copyright (c) 2025 Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
  *
  * @created 21/06/2025
+ *
  * @version 1.0.0
  */
 final class SatimRegisterRequest extends AbstractSatimRequest implements SatimRequestInterface
 {
     /**
-     * @param string $orderNumber
-     * @param float $amount
-     * @param string $returnUrl
-     * @param string $udf1
-     * @param string|null $udf2
-     * @param string|null $udf3
-     * @param string|null $udf4
-     * @param string|null $udf5
-     * @param string|null $failUrl
-     * @param string|null $description
-     * @param SatimCurrency|null $currency
-     * @param SatimLanguage|null $language
      * @throws SatimInvalidArgumentException
      */
     public function __construct(
@@ -58,21 +48,10 @@ final class SatimRegisterRequest extends AbstractSatimRequest implements SatimRe
     }
 
     /**
-     * @param string $orderNumber
-     * @param float $amount
-     * @param string $returnUrl
-     * @param string $udf1
-     * @param string|null $udf2
-     * @param string|null $udf3
-     * @param string|null $udf4
-     * @param string|null $udf5
-     * @param string|null $failUrl
-     * @param string|null $description
-     * @param SatimCurrency|null $currency
-     * @param SatimLanguage|null $language
-     * @return SatimRegisterRequest
      * @throws SatimInvalidArgumentException
+     *
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public static function make(
@@ -106,8 +85,8 @@ final class SatimRegisterRequest extends AbstractSatimRequest implements SatimRe
     }
 
     /**
-     * @return array
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function toArray(): array
@@ -128,30 +107,31 @@ final class SatimRegisterRequest extends AbstractSatimRequest implements SatimRe
                 'udf2' => $this->udf2,
                 'udf3' => $this->udf3,
                 'udf4' => $this->udf4,
-                'udf5' => $this->udf5
-            ]
+                'udf5' => $this->udf5,
+            ],
         ];
     }
 
     /**
-     * @return array
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function toRequest(): array
     {
         return array_merge($this->toArray(), [
-            'amount' => (int)($this->amount * 100),
+            'amount' => (int) ($this->amount * 100),
             'currency' => $this->currency?->value,
             'language' => $this->language?->value,
-            'jsonParams' => json_encode(array_filter($this->toArray()['jsonParams']))
+            'jsonParams' => json_encode(array_filter($this->toArray()['jsonParams'])),
         ]);
     }
 
     /**
-     * @return void
      * @throws SatimInvalidArgumentException
+     *
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function validate(): void
@@ -172,7 +152,7 @@ final class SatimRegisterRequest extends AbstractSatimRequest implements SatimRe
             'jsonParams.udf2' => ['nullable', 'string', 'max:20'],
             'jsonParams.udf3' => ['nullable', 'string', 'max:20'],
             'jsonParams.udf4' => ['nullable', 'string', 'max:20'],
-            'jsonParams.udf5' => ['nullable', 'string', 'max:20']
+            'jsonParams.udf5' => ['nullable', 'string', 'max:20'],
         ]);
 
         if ($validator->fails()) {

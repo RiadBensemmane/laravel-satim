@@ -8,22 +8,23 @@ use LaravelSatim\Contracts\SatimResponseInterface;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+ *
  * @project laravel-satim
- * @package LaravelSatim\Http\Responses
+ *
  * @name SatimRefundResponse
  *
  * @license MIT
  * @copyright (c) 2025 Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
  *
  * @created 21/06/2025
+ *
  * @version 1.0.0
  */
 class SatimRefundResponse extends AbstractSatimResponse implements SatimResponseInterface
 {
     /**
-     * @param array $response
-     * @return SatimRefundResponse
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public static function fromResponse(array $response): SatimRefundResponse

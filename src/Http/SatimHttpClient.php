@@ -10,24 +10,25 @@ use LaravelSatim\Exceptions\SatimApiServerException;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+ *
  * @project laravel-satim
- * @package LaravelSatim\Http
+ *
  * @name SatimHttpClient
  *
  * @license MIT
  * @copyright (c) 2025 Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
  *
  * @created 21/06/2025
+ *
  * @version 1.0.0
  */
 class SatimHttpClient
 {
     /**
-     * @param string $endpoint
-     * @param array $data
-     * @return array|null
      * @throws SatimApiServerException
+     *
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public function call(string $endpoint, array $data = []): ?array
@@ -51,9 +52,10 @@ class SatimHttpClient
     }
 
     /**
-     * @return string
      * @throws SatimApiServerException
+     *
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     protected function getApiUrl(): string
@@ -65,10 +67,10 @@ class SatimHttpClient
     }
 
     /**
-     * @param string $endpoint
-     * @return string
      * @throws SatimApiServerException
+     *
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     protected function getEndpoint(string $endpoint): string
@@ -80,8 +82,8 @@ class SatimHttpClient
     }
 
     /**
-     * @return array
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     protected function options(): array

@@ -8,24 +8,20 @@ use LaravelSatim\Contracts\SatimResponseInterface;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+ *
  * @project laravel-satim
- * @package LaravelSatim\Http\Responses
+ *
  * @name SatimRegisterResponse
  *
  * @license MIT
  * @copyright (c) 2025 Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
  *
  * @created 21/06/2025
+ *
  * @version 1.0.0
  */
 class SatimRegisterResponse extends AbstractSatimResponse implements SatimResponseInterface
 {
-    /**
-     * @param string|null $orderId
-     * @param string|null $formUrl
-     * @param string|null $errorCode
-     * @param string|null $errorMessage
-     */
     public function __construct(
         public ?string $orderId = null,
         public ?string $formUrl = null,
@@ -39,9 +35,8 @@ class SatimRegisterResponse extends AbstractSatimResponse implements SatimRespon
     }
 
     /**
-     * @param array $response
-     * @return SatimRegisterResponse
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public static function fromResponse(array $response): SatimRegisterResponse

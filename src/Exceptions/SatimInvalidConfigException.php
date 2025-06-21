@@ -6,16 +6,16 @@ namespace LaravelSatim\Exceptions;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+ *
  * @project laravel-satim
- * @package LaravelSatim\Exceptions
+ *
  * @name SatimInvalidConfigException
  *
  * @license MIT
  * @copyright (c) 2025 Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
  *
  * @created 21/06/2025
+ *
  * @version 1.0.0
  */
-class SatimInvalidConfigException extends \Exception
-{
-}
+class SatimInvalidConfigException extends \Exception {}

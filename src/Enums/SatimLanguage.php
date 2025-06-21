@@ -8,14 +8,16 @@ use LaravelSatim\Traits\EnumToArray;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+ *
  * @project laravel-satim
- * @package LaravelSatim\Enums
+ *
  * @name SatimLanguage
  *
  * @license MIT
  * @copyright (c) 2025 Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
  *
  * @created 21/06/2025
+ *
  * @version 1.0.0
  */
 enum SatimLanguage: string
@@ -27,8 +29,8 @@ enum SatimLanguage: string
     case FR = 'FR';
 
     /**
-     * @return SatimLanguage
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public static function fallback(): SatimLanguage

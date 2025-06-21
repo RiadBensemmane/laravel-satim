@@ -12,7 +12,6 @@
     ],
     "homepage": "https://github.com/achetibi/laravel-satim",
     "license": "MIT",
-    "type": "library",
     "authors": [
         {
             "name": "Abderrahim CHETIBI",

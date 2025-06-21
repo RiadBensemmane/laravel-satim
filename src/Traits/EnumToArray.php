@@ -6,14 +6,16 @@ namespace LaravelSatim\Traits;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+ *
  * @project laravel-satim
- * @package LaravelSatim\Traits
+ *
  * @name EnumToArray
  *
  * @license MIT
  * @copyright (c) 2025 Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
  *
  * @created 21/06/2025
+ *
  * @version 1.0.0
  *
  * @method static cases
@@ -21,8 +23,8 @@ namespace LaravelSatim\Traits;
 trait EnumToArray
 {
     /**
-     * @return array
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public static function values(): array
@@ -35,9 +37,8 @@ trait EnumToArray
     }
 
     /**
-     * @param string $name
-     * @return static|null
      * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
+     *
      * @created 21/06/2025
      */
     public static function fromName(string $name): ?static
@@ -48,6 +49,7 @@ trait EnumToArray
                 return $case;
             }
         }
+
         return null;
     }
 }
