@@ -1,0 +1,64 @@
+{
+    "name": "achetibi/laravel-satim",
+    "version": "1.0.0",
+    "minimum-stability": "stable",
+    "description": "Laravel package for integrating SATIM online payments.",
+    "keywords": [
+        "achetibi",
+        "satim",
+        "payment",
+        "laravel-satim"
+    ],
+    "homepage": "https://github.com/achetibi/laravel-satim",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Abderrahim CHETIBI",
+            "email": "chetibi.abderrahim@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "guzzlehttp/guzzle": "^7.9",
+        "illuminate/config": "^12.19",
+        "illuminate/http": "^12.19",
+        "illuminate/support": "^12.19"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.22",
+        "pestphp/pest": "^3.8",
+        "pestphp/pest-plugin-type-coverage": "^3.5"
+    },
+    "autoload": {
+        "psr-4": {
+            "LaravelSatim\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "LaravelSatim\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "lint": "pint -v"
+    },
+    "config": {
+        "preferred-install": "dist",
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "LaravelSatim\\SatimServiceProvider"
+            ],
+            "aliases": {
+                "LaravelSatim": "LaravelSatim\\SatimFacade"
+            }
+        }
+    }
+}
