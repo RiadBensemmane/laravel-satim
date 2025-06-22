@@ -6,6 +6,7 @@ namespace LaravelSatim\Http\Responses;
 
 use LaravelSatim\Contracts\SatimResponseInterface;
 use LaravelSatim\Enums\SatimCurrency;
+use LaravelSatim\Support\SatimResponseAccessor;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
@@ -59,27 +60,30 @@ class SatimConfirmResponse extends AbstractSatimResponse implements SatimRespons
      */
     public static function fromResponse(array $response): SatimConfirmResponse
     {
+        $responseAccessor = SatimResponseAccessor::make($response);
+        $paramsAccessor = SatimResponseAccessor::make($responseAccessor->getArray('params'));
+
         return new SatimConfirmResponse(
-            expiration: $response['expiration'] ?? null,
-            cardholderName: $response['cardholderName'] ?? null,
-            depositAmount: isset($response['depositAmount']) ? (float) ($response['depositAmount'] / 100) : null,
-            currency: isset($response['currency']) ? SatimCurrency::tryFrom($response['currency']) : null,
-            pan: $response['Pan'] ?? null,
-            approvalCode: $response['approvalCode'] ?? null,
-            authCode: isset($response['authCode']) ? (int) $response['authCode'] : null,
-            orderNumber: $response['OrderNumber'] ?? null,
-            amount: isset($response['Amount']) ? (float) ($response['Amount'] / 100) : null,
-            svfeResponse: $response['SvfeResponse'] ?? null,
-            orderStatus: isset($response['OrderStatus']) ? (string) $response['OrderStatus'] : null,
-            actionCode: isset($response['actionCode']) ? (string) $response['actionCode'] : null,
-            actionCodeDescription: $response['actionCodeDescription'] ?? null,
-            errorCode: $response['ErrorCode'] ?? null,
-            errorMessage: $response['ErrorMessage'] ?? null,
-            ip: $response['Ip'] ?? null,
+            expiration: $responseAccessor->getString('expiration'),
+            cardholderName: $responseAccessor->getString('cardholderName'),
+            depositAmount: $responseAccessor->getFloat('depositAmount', 0) / 100,
+            currency: $responseAccessor->getEnum('currency', SatimCurrency::class),
+            pan: $responseAccessor->getString('Pan'),
+            approvalCode: $responseAccessor->getString('approvalCode'),
+            authCode: $responseAccessor->getInt('authCode'),
+            orderNumber: $responseAccessor->getString('OrderNumber'),
+            amount: $responseAccessor->getFloat('Amount', 0) / 100,
+            svfeResponse: $responseAccessor->getString('SvfeResponse'),
+            orderStatus: $responseAccessor->getString('OrderStatus'),
+            actionCode: $responseAccessor->getString('actionCode'),
+            actionCodeDescription: $responseAccessor->getString('actionCodeDescription'),
+            errorCode: $responseAccessor->getString('ErrorCode'),
+            errorMessage: $responseAccessor->getString('ErrorMessage'),
+            ip: $responseAccessor->getString('Ip'),
             params: [
-                'respCode_desc' => $response['params']['respCode_desc'] ?? null,
-                'udf1' => $response['params']['udf1'] ?? null,
-                'respCode' => $response['params']['respCode'] ?? null,
+                'udf1' => $paramsAccessor->getString('udf1'),
+                'respCode' => $paramsAccessor->getString('respCode'),
+                'respCode_desc' => $paramsAccessor->getString('respCode_desc'),
             ]
         );
     }

@@ -30,7 +30,7 @@ abstract class AbstractSatimResponse
     ) {}
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */
@@ -40,7 +40,7 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */
@@ -50,7 +50,7 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */
@@ -60,7 +60,7 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */
@@ -70,7 +70,7 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */
@@ -80,7 +80,7 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */
@@ -90,7 +90,7 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */
@@ -100,7 +100,7 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */
@@ -110,7 +110,7 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */
@@ -120,7 +120,7 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */
@@ -130,7 +130,7 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */
@@ -140,7 +140,7 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */
@@ -150,7 +150,7 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */
@@ -160,7 +160,7 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */
@@ -220,7 +220,7 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */
@@ -260,7 +260,7 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */
@@ -270,7 +270,7 @@ abstract class AbstractSatimResponse
     }
 
     /**
-     * @author Abderrahim CHETIBI <a.chetibi@itcontrol.io>
+     * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
      *
      * @created 21/06/2025
      */

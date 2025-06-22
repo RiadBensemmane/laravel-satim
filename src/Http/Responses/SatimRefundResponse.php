@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace LaravelSatim\Http\Responses;
 
 use LaravelSatim\Contracts\SatimResponseInterface;
+use LaravelSatim\Support\SatimResponseAccessor;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
@@ -29,9 +30,11 @@ class SatimRefundResponse extends AbstractSatimResponse implements SatimResponse
      */
     public static function fromResponse(array $response): SatimRefundResponse
     {
+        $responseAccessor = SatimResponseAccessor::make($response);
+
         return new static(
-            errorCode: $response['errorCode'] ?? null,
-            errorMessage: $response['errorMessage'] ?? null
+            errorCode: $responseAccessor->getString('errorCode'),
+            errorMessage: $responseAccessor->getString('errorMessage')
         );
     }
 }

@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace LaravelSatim\Http\Responses;
 
 use LaravelSatim\Contracts\SatimResponseInterface;
+use LaravelSatim\Support\SatimResponseAccessor;
 
 /**
  * @author Abderrahim CHETIBI <chetibi.abderrahim@gmail.com>
@@ -41,11 +42,13 @@ class SatimRegisterResponse extends AbstractSatimResponse implements SatimRespon
      */
     public static function fromResponse(array $response): SatimRegisterResponse
     {
+        $responseAccessor = SatimResponseAccessor::make($response);
+
         return new self(
-            orderId: $response['orderId'] ?? null,
-            formUrl: $response['formUrl'] ?? null,
-            errorCode: $response['errorCode'] ?? null,
-            errorMessage: $response['errorMessage'] ?? null
+            orderId: $responseAccessor->getString('orderId'),
+            formUrl: $responseAccessor->getString('formUrl'),
+            errorCode: $responseAccessor->getString('errorCode'),
+            errorMessage: $responseAccessor->getString('errorMessage')
         );
     }
 }
