@@ -91,7 +91,7 @@ final class SatimRefundRequest extends AbstractSatimRequest implements SatimRequ
             'userName' => ['required', 'string', 'max:30'],
             'password' => ['required', 'string', 'max:30'],
             'orderId' => ['required', 'string', 'max:20'],
-            'amount' => ['required', 'decimal:2', 'min:50'],
+            'amount' => ['required', 'decimal:0,2', 'min:50'],
         ]);
 
         if ($validator->fails()) {
