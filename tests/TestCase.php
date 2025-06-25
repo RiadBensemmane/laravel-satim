@@ -30,17 +30,4 @@ abstract class TestCase extends BaseTestCase
         $app['config']->set('satim.language', 'en');
         $app['config']->set('satim.currency', 'DZD');
     }
-
-    protected function defineEnvironment($app)
-    {
-        $app['config']->set('satim', [
-            'username' => 'test_username',
-            'password' => 'test_password',
-            'terminal' => 'test_terminal',
-            'api_url' => 'https://test.satim.dz/payment/rest',
-            'timeout' => 30,
-            'language' => 'en',
-            'currency' => 'DZD',
-        ]);
-    }
 }
