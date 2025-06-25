@@ -75,12 +75,12 @@ it('validates orderId max length', function () {
 
 it('accepts valid orderId at max length', function () {
     $validOrderId = str_repeat('a', 20);
-    
+
     $request = SatimRefundRequest::make(
         orderId: $validOrderId,
         amount: 100.0
     );
-    
+
     expect($request->orderId)->toBe($validOrderId);
 });
 
@@ -103,7 +103,7 @@ it('accepts minimum valid amount', function () {
         orderId: 'ORDER123',
         amount: 50.00
     );
-    
+
     expect($request->amount)->toBe(50.00);
 });
 
@@ -119,7 +119,7 @@ it('implements SatimRequestInterface', function () {
         orderId: 'ORDER123',
         amount: 100.0
     );
-    
+
     expect($request)->toBeInstanceOf(\LaravelSatim\Contracts\SatimRequestInterface::class);
 });
 
@@ -128,7 +128,7 @@ it('extends AbstractSatimRequest', function () {
         orderId: 'ORDER123',
         amount: 100.0
     );
-    
+
     expect($request)->toBeInstanceOf(\LaravelSatim\Http\Requests\AbstractSatimRequest::class);
 });
 
@@ -152,13 +152,13 @@ it('has correct validation error messages for amount', function () {
 
 it('handles float amounts with proper precision', function () {
     $amounts = [50.00, 100.50, 999.99, 1234.56];
-    
+
     foreach ($amounts as $amount) {
         $request = SatimRefundRequest::make(
             orderId: 'ORDER123',
             amount: $amount
         );
-        
+
         expect($request->amount)->toBe($amount);
     }
 });

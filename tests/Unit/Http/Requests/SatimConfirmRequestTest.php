@@ -86,9 +86,9 @@ it('validates orderId max length', function () {
 
 it('accepts valid orderId at max length', function () {
     $validOrderId = str_repeat('a', 20);
-    
+
     $request = SatimConfirmRequest::make(orderId: $validOrderId);
-    
+
     expect($request->orderId)->toBe($validOrderId);
 });
 
@@ -104,7 +104,7 @@ it('accepts all valid SatimLanguage enum values', function () {
             orderId: 'ORDER123',
             language: $language
         );
-        
+
         expect($request->language)->toBe($language);
     }
 });
@@ -112,13 +112,13 @@ it('accepts all valid SatimLanguage enum values', function () {
 
 it('implements SatimRequestInterface', function () {
     $request = SatimConfirmRequest::make(orderId: 'ORDER123');
-    
+
     expect($request)->toBeInstanceOf(\LaravelSatim\Contracts\SatimRequestInterface::class);
 });
 
 it('extends AbstractSatimRequest', function () {
     $request = SatimConfirmRequest::make(orderId: 'ORDER123');
-    
+
     expect($request)->toBeInstanceOf(\LaravelSatim\Http\Requests\AbstractSatimRequest::class);
 });
 
