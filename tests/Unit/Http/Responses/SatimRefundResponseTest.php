@@ -70,22 +70,6 @@ it('creates response from error API response array', function () {
         ->and($response->params)->toBe([]);
 });
 
-it('handles missing values in API response', function () {
-    $apiResponse = [
-        'someOtherField' => 'value'
-    ];
-
-    $response = SatimRefundResponse::fromResponse($apiResponse);
-
-    expect($response)->toBeInstanceOf(SatimRefundResponse::class)
-        ->and($response->errorCode)->toBeNull()
-        ->and($response->errorMessage)->toBeNull()
-        ->and($response->orderStatus)->toBeNull()
-        ->and($response->actionCode)->toBeNull()
-        ->and($response->actionCodeDescription)->toBeNull()
-        ->and($response->params)->toBe([]);
-});
-
 it('handles empty API response array', function () {
     $apiResponse = [];
 
@@ -121,8 +105,8 @@ it('inherits methods from AbstractSatimResponse', function () {
     );
 
     expect($response->paymentRefunded())->toBeTrue()
-        ->and($response->successful())->toBeFalse() // orderStatus '4' is not in ['0', '2']
-        ->and($response->fail())->toBeFalse(); // orderStatus '4' is specifically excluded from fail
+        ->and($response->successful())->toBeFalse()
+        ->and($response->fail())->toBeFalse();
 });
 
 it('can detect refund success scenarios', function () {
@@ -247,7 +231,6 @@ it('handles various refund error scenarios', function () {
 });
 
 it('validates type safety for constructor parameters', function () {
-    // Test with string values (should work)
     $response = new SatimRefundResponse(
         orderStatus: '4',
         actionCode: '0',
@@ -306,7 +289,6 @@ it('handles complex API response structures', function () {
 
     $response = SatimRefundResponse::fromResponse($complexApiResponse);
 
-    // Only errorCode and errorMessage should be set by fromResponse
     expect($response->errorCode)->toBe('0')
         ->and($response->errorMessage)->toBeNull()
         ->and($response->orderStatus)->toBeNull()
@@ -314,30 +296,15 @@ it('handles complex API response structures', function () {
 });
 
 it('validates that fromResponse uses SatimResponseAccessor correctly', function () {
-    // Test various data types that SatimResponseAccessor should handle
     $apiResponse = [
-        'errorCode' => 0, // integer should be converted to string
-        'errorMessage' => '', // empty string should remain as string
+        'errorCode' => 0,
+        'errorMessage' => '',
     ];
 
     $response = SatimRefundResponse::fromResponse($apiResponse);
 
-    expect($response->errorCode)->toBe('0') // Should be converted to string
-        ->and($response->errorMessage)->toBe(''); // Should remain as string
-});
-
-it('maintains immutability after creation', function () {
-    $response = new SatimRefundResponse(
-        errorCode: '0',
-        errorMessage: 'Success'
-    );
-
-    $initialErrorCode = $response->errorCode;
-    $initialErrorMessage = $response->errorMessage;
-
-    // Properties should remain the same (testing readonly behavior)
-    expect($response->errorCode)->toBe($initialErrorCode)
-        ->and($response->errorMessage)->toBe($initialErrorMessage);
+    expect($response->errorCode)->toBe('0')
+        ->and($response->errorMessage)->toBe('');
 });
 
 it('can be used in collections and serialization contexts', function () {

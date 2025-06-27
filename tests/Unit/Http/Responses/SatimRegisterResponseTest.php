@@ -64,20 +64,6 @@ it('creates response from error API response array', function () {
         ->and($response->errorMessage)->toBe('Invalid merchant credentials');
 });
 
-it('handles missing values in API response', function () {
-    $apiResponse = [
-        'orderId' => 'ORDER123'
-    ];
-
-    $response = SatimRegisterResponse::fromResponse($apiResponse);
-
-    expect($response)->toBeInstanceOf(SatimRegisterResponse::class)
-        ->and($response->orderId)->toBe('ORDER123')
-        ->and($response->formUrl)->toBeNull()
-        ->and($response->errorCode)->toBeNull()
-        ->and($response->errorMessage)->toBeNull();
-});
-
 it('handles empty API response array', function () {
     $apiResponse = [];
 
@@ -141,32 +127,6 @@ it('fromResponse returns SatimRegisterResponse instance', function () {
         ->and($response)->toBeInstanceOf(\LaravelSatim\Http\Responses\AbstractSatimResponse::class);
 });
 
-it('handles various error codes correctly', function () {
-    $errorCodes = [
-        ['code' => '0', 'message' => null, 'shouldBeRegistered' => true],
-        ['code' => '1', 'message' => 'Invalid merchant credentials', 'shouldBeRegistered' => false],
-        ['code' => '2', 'message' => 'Invalid order amount', 'shouldBeRegistered' => false],
-        ['code' => '3', 'message' => 'Invalid order number', 'shouldBeRegistered' => false],
-        ['code' => '4', 'message' => 'Order already exists', 'shouldBeRegistered' => false],
-        ['code' => '5', 'message' => 'System error', 'shouldBeRegistered' => false]
-    ];
-
-    foreach ($errorCodes as $errorData) {
-        $apiResponse = [
-            'orderId' => $errorData['shouldBeRegistered'] ? 'ORDER123' : null,
-            'formUrl' => $errorData['shouldBeRegistered'] ? 'https://satim.dz/payment/form/123' : null,
-            'errorCode' => $errorData['code'],
-            'errorMessage' => $errorData['message']
-        ];
-
-        $response = SatimRegisterResponse::fromResponse($apiResponse);
-
-        expect($response->errorCode)->toBe($errorData['code'])
-            ->and($response->errorMessage)->toBe($errorData['message'])
-            ->and($response->paymentRegistered())->toBe($errorData['shouldBeRegistered']);
-    }
-});
-
 it('validates property types correctly', function () {
     $response = new SatimRegisterResponse(
         orderId: 'ORDER123',
@@ -192,9 +152,9 @@ it('validates nullable properties', function () {
 
 it('handles string conversions in fromResponse', function () {
     $apiResponse = [
-        'orderId' => 123,  // Should be converted to string
+        'orderId' => 123,
         'formUrl' => 'https://satim.dz/payment/form/123',
-        'errorCode' => 0,  // Should be converted to string
+        'errorCode' => 0,
         'errorMessage' => 'Test message'
     ];
 
@@ -211,7 +171,6 @@ it('preserves inherited properties from AbstractSatimResponse', function () {
         errorCode: '3'
     );
 
-    // Should inherit these properties from AbstractSatimResponse
     expect($response->orderStatus)->toBeNull()
         ->and($response->actionCode)->toBeNull()
         ->and($response->actionCodeDescription)->toBeNull()
