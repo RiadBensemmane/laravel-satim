@@ -31,7 +31,7 @@ it('should extends and implements satim response classes', function () {
             'OrderNumber' => '1538298192',
             'Pan' => '628058**1011',
             'Amount' => 100000,
-            'Ip' => '105.100.197.163',
+            'Ip' => '127.0.0.1',
             'SvfeResponse' => '00',
         ])
     ))
@@ -63,7 +63,7 @@ it('should confirm a valid credit card', function () {
             'OrderNumber' => '1538298192',
             'Pan' => '628058**1011',
             'Amount' => 100000,
-            'Ip' => '105.100.197.163',
+            'Ip' => '127.0.0.1',
             'SvfeResponse' => '00',
         ])
     );
@@ -106,7 +106,7 @@ it('should confirm a temporarily blocked card', function () {
             'OrderNumber' => '1538298193',
             'Pan' => '628058**6712',
             'Amount' => 100000,
-            'Ip' => '105.100.197.163',
+            'Ip' => '127.0.0.1',
             'SvfeResponse' => '37',
         ])
     );
