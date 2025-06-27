@@ -40,7 +40,25 @@ expect()->extend('toBeOne', function () {
 |
 */
 
-function something()
+function fakeApi(string $endpoint, array $data = [])
 {
-    // ..
+    $url = implode('/', [rtrim(config('satim.api_url')), ltrim($endpoint, '/')]);
+    $client = Http::fake([$url => Http::response($data)]);
+
+    return $client->get($url)->json();
+}
+
+function registerEndpoint(array $data = [])
+{
+    return fakeApi('/register.do', $data);
+}
+
+function confirmEndpoint(array $data = [])
+{
+    return fakeApi('/confirmOrder.do', $data);
+}
+
+function refundEndpoint(array $data = [])
+{
+    return fakeApi('/refund.do', $data);
 }
